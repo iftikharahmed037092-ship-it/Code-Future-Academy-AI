@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFA AI Navbar</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* BACKGROUND */
+body{
+height:100vh;
+overflow-x:hidden;
+background: radial-gradient(circle at top, #0b0f2a, #050510);
+color:white;
+}
+
+/* PARTICLES */
+.particle{
+position:absolute;
+width:6px;
+height:6px;
+background:#7c4dff;
+border-radius:50%;
+opacity:0.5;
+animation: float 10s infinite linear;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-100vh)}
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background: rgba(10, 10, 30, 0.6);
+backdrop-filter: blur(12px);
+border-bottom:2px solid rgba(0,150,255,0.4);
+box-shadow:0 0 20px rgba(0,150,255,0.2);
+z-index:1000;
+overflow:hidden;
+}
+
+/* SHINE EFFECT */
+nav::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:60%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
+animation:shine 4s infinite;
+}
+
+@keyframes shine{
+0%{left:-100%}
+100%{left:200%}
+}
+
+/* LOGO */
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:18px;
+font-weight:bold;
+position:relative;
+}
+
+.logo span{
+display:inline-block;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%,100%{text-shadow:0 0 5px #00f,0 0 10px #7c4dff;}
+50%{text-shadow:0 0 15px #00f,0 0 25px #7c4dff;}
+}
+
+/* ROTATE CLASS */
+.rotate{
+animation: spin 0.8s linear;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg)}
+100%{transform:rotate(360deg)}
+}
+
+/* MENU */
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+position:relative;
+transition:0.3s;
+}
+
+.menu a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0%;
+height:2px;
+background:#7c4dff;
+transition:0.3s;
+}
+
+.menu a:hover::after{
+width:100%;
+}
+
+/* BUTTONS */
+.buttons{
+display:flex;
+gap:10px;
+}
+
+.btn{
+padding:8px 15px;
+border:none;
+cursor:pointer;
+border-radius:8px;
+color:white;
+background:linear-gradient(45deg,#2196f3,#7c4dff);
+transition:0.3s;
+box-shadow:0 0 10px rgba(124,77,255,0.4);
+}
+
+.btn:hover{
+transform:scale(1.1) translateY(-2px);
+box-shadow:0 0 20px rgba(124,77,255,0.7);
+}
+
+.btn:active{
+transform:scale(0.95);
+}
+
+/* MOBILE MENU */
+.hamburger{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:250px;
+height:100%;
+background:rgba(10,10,30,0.95);
+backdrop-filter:blur(10px);
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:20px;
+transition:0.4s;
+}
+
+.mobile-menu a{
+color:white;
+text-decoration:none;
+}
+
+/* POPUP */
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:rgba(20,20,40,0.95);
+padding:20px;
+border-radius:10px;
+display:none;
+box-shadow:0 0 20px #7c4dff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+<script>
+for(let i=0;i<30;i++){
+let p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+p.style.top=Math.random()*100+"vh";
+p.style.animationDuration=(5+Math.random()*10)+"s";
+document.body.appendChild(p);
+}
+</script>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo" id="logo">
+<span>⚡ CFA AI</span>
+<span>Coding Future Academy AI</span>
+</div>
+
+<div class="menu">
+<a href="#" onclick="popup()">Home</a>
+<a href="#" onclick="popup()">Templates</a>
+<a href="#" onclick="popup()">Features</a>
+<a href="#" onclick="popup()">Pricing</a>
+<a href="#" onclick="popup()">Support</a>
+</div>
+
+<div class="buttons">
+<button class="btn" onclick="popup()">Login</button>
+<button class="btn" onclick="popup()">Get Started</button>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+<a href="#" onclick="popup()">Home</a>
+<a href="#" onclick="popup()">Templates</a>
+<a href="#" onclick="popup()">Features</a>
+<a href="#" onclick="popup()">Pricing</a>
+<a href="#" onclick="popup()">Support</a>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popupBox">Coming Soon</div>
+
+<script>
+
+// POPUP
+function popup(){
+document.getElementById("popupBox").style.display="block";
+setTimeout(()=>{
+document.getElementById("popupBox").style.display="none";
+},1500);
+}
+
+// MOBILE MENU
+function toggleMenu(){
+let menu=document.getElementById("mobileMenu");
+if(menu.style.right=="0px"){
+menu.style.right="-100%";
+}else{
+menu.style.right="0px";
+}
+}
+
+// LOGO SPIN ON SHINE HIT (SIMULATION)
+setInterval(()=>{
+let logo=document.getElementById("logo");
+logo.classList.add("rotate");
+setTimeout(()=>logo.classList.remove("rotate"),800);
+},4000);
+
+</script>
+
+</body>
+</html>
