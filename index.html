@@ -3,36 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CFA AI</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* =======================================================
-PART 2 CSS YAHAN SE SHURU HOGA
-IS STYLE TAG KO ABHI BAND MAT KARNA
-======================================================= */
-
-:root{
-
---bg:#060816;
---bg2:#0c1027;
-
---blue:#29b6ff;
---purple:#8b5cf6;
---pink:#ff4fd8;
-
---glass:rgba(255,255,255,.08);
-
---white:#ffffff;
-
-}
-
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -40,1126 +17,212 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
-
-background:
-radial-gradient(circle at top left,#13214d 0%,transparent 30%),
-radial-gradient(circle at top right,#2a1047 0%,transparent 25%),
-linear-gradient(180deg,#04060f,#080d1f);
-
+background:#050714;
 color:white;
 overflow-x:hidden;
-min-height:100vh;
-
 }
 
-/* ======================
-BACKGROUND EFFECTS
-====================== */
-
-.background-layer{
-
-position:fixed;
-inset:0;
-z-index:-5;
-
-}
-
+/* PARTICLES */
 .particles{
-
 position:fixed;
 inset:0;
-z-index:-4;
+z-index:-1;
 pointer-events:none;
-
 }
 
-.light-grid{
-
-position:fixed;
-inset:0;
-z-index:-3;
-pointer-events:none;
-
-}
-
-.neon-orbs{
-
-position:fixed;
-inset:0;
-z-index:-2;
-pointer-events:none;
-
-}
-
-/* ======================
-HEADER
-====================== */
-
+/* HEADER */
 .header{
-
 position:fixed;
 top:0;
-left:0;
 width:100%;
-
-padding:16px 28px;
-
 display:flex;
-align-items:center;
 justify-content:space-between;
-
+align-items:center;
+padding:15px 25px;
 backdrop-filter:blur(20px);
-
-background:rgba(7,10,24,.55);
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-z-index:9999;
-
-overflow:hidden;
-
+background:rgba(0,0,0,.4);
+z-index:999;
 }
 
-/* TOP SHINE */
-
-.header-shine{
-
-position:absolute;
-inset:0;
-pointer-events:none;
-
-}
-
-/* ======================
-LEFT SIDE
-====================== */
-
+/* BRAND */
 .brand-area{
-
-display:flex;
-align-items:center;
-gap:16px;
-
-}
-
-/* COIN */
-
-.coin-wrap{
-
-position:relative;
-
-width:78px;
-height:78px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
-
-}
-
-.coin-logo{
-
-position:relative;
-
-width:72px;
-height:72px;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-}
-
-/* RING */
-
-.coin-ring{
-
-position:absolute;
-inset:0;
-border-radius:50%;
-
-}
-
-/* INNER COIN */
-
-.coin-inner{
-
-position:absolute;
-
-width:58px;
-height:58px;
-
-border-radius:50%;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-
-}
-
-/* CFA */
-
-.coin-cfa{
-
-font-size:18px;
-font-weight:800;
-letter-spacing:1px;
-
-line-height:1;
-
-}
-
-/* AI */
-
-.coin-ai{
-
-font-size:13px;
-font-weight:700;
-
-margin-top:3px;
-
-}
-
-/* BRAND NAME */
-
-.brand-text{
-
-display:flex;
-flex-direction:column;
-
-}
-
-.brand-title{
-
-font-size:25px;
-font-weight:800;
-
-line-height:1.1;
-
-}
-
-.brand-sub{
-
-font-size:12px;
-opacity:.8;
-letter-spacing:2px;
-
-margin-top:2px;
-
-}
-
-/* ======================
-CENTER MENU
-====================== */
-
-.desktop-menu{
-
-display:flex;
-align-items:center;
-gap:26px;
-
-}
-
-.desktop-menu a{
-
-text-decoration:none;
-color:white;
-
-font-size:15px;
-font-weight:500;
-
-position:relative;
-
-}
-
-/* ICON */
-
-.nav-link{
-
-display:flex;
-align-items:center;
-gap:8px;
-
-}
-
-/* ======================
-RIGHT SIDE
-====================== */
-
-.action-area{
-
 display:flex;
 align-items:center;
 gap:12px;
-
 }
 
-/* LOGIN */
-
-.login-btn{
-
-position:relative;
-
-height:48px;
-padding:0 26px;
-
-border-radius:14px;
-
-background:transparent;
-
-cursor:pointer;
-
-font-weight:600;
-
-}
-
-/* GET STARTED */
-
-.start-btn{
-
-position:relative;
-
-height:48px;
-padding:0 28px;
-
-border:none;
-
-cursor:pointer;
-
-border-radius:14px;
-
-font-weight:700;
-
-}
-
-/* ======================
-MOBILE BUTTON
-====================== */
-
-.mobile-trigger{
-
-display:none;
-
-align-items:center;
-justify-content:center;
-
-width:62px;
-height:62px;
-
+.coin-logo{
+width:55px;
+height:55px;
 border-radius:50%;
-
-cursor:pointer;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-/* THREE LINES */
-
-.hamburger{
-
-position:relative;
-
-width:28px;
-height:20px;
-
-}
-
-.hamburger span{
-
-position:absolute;
-left:0;
-
-width:100%;
-height:3px;
-
-border-radius:20px;
-
-}
-
-.hamburger span:nth-child(1){
-top:0;
-}
-
-.hamburger span:nth-child(2){
-top:8px;
-}
-
-.hamburger span:nth-child(3){
-bottom:0;
-}
-
-/* ======================
-MOBILE MENU
-====================== */
-
-.mobile-menu{
-
-position:fixed;
-
-top:0;
-right:-420px;
-
-width:360px;
-max-width:90vw;
-
-height:100vh;
-
-z-index:99999;
-
-padding:30px;
-
-overflow-y:auto;
-
-}
-
-.mobile-head{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-margin-bottom:30px;
-
-}
-
-.close-menu{
-
-width:44px;
-height:44px;
-
-border-radius:50%;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
-cursor:pointer;
-
+background:linear-gradient(145deg,#29b6ff,#8b5cf6);
+animation:float 5s infinite ease-in-out;
 }
 
-.mobile-links{
-
-display:flex;
-flex-direction:column;
-gap:16px;
-
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0);}
 }
 
-.mobile-item{
-
-height:62px;
-
-display:flex;
-align-items:center;
-gap:15px;
-
-padding:0 18px;
-
-border-radius:18px;
-
-cursor:pointer;
-
-}
-
-/* ======================
-COMING SOON POPUP
-====================== */
-
-.popup-overlay{
-
-position:fixed;
-inset:0;
-
-display:none;
-
-align-items:center;
-justify-content:center;
-
-z-index:999999;
-
-}
-
-.popup-box{
-
-width:420px;
-max-width:92%;
-
-padding:30px;
-
-border-radius:28px;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.popup-title{
-
-font-size:34px;
-font-weight:800;
-
-margin-bottom:10px;
-
-}
-
-.popup-text{
-
-opacity:.9;
-
-}
-
-/* ======================
-DEMO HERO
-====================== */
-
-.hero-space{
-
-height:130vh;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-}
-
-.hero-placeholder{
-
-text-align:center;
-
-}
-
-.hero-placeholder h1{
-
-font-size:60px;
-
-font-weight:800;
-
-}
-
-.hero-placeholder p{
-
-margin-top:14px;
-opacity:.7;
-
-}
-
-/* ======================
-RESPONSIVE
-====================== */
-
-@media(max-width:1100px){
-
+/* MENU */
 .desktop-menu{
-display:none;
-}
-
-.mobile-trigger{
 display:flex;
+gap:20px;
 }
-
-}
-
-@media(max-width:768px){
-
-.brand-title{
-font-size:18px;
-}
-
-.coin-wrap{
-
-width:66px;
-height:66px;
-
-}
-
-.coin-logo{
-
-width:60px;
-height:60px;
-
-}
-
-.header{
-
-padding:14px 16px;
-
-}
-
-.start-btn{
-
-padding:0 18px;
-
-}
-
-.login-btn{
-
-padding:0 18px;
-
-}
-
-}
-/* =======================================================
-COIN GLASS DESIGN
-======================================================= */
-
-.coin-logo{
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.25),
-rgba(255,255,255,.05)
-);
-
-backdrop-filter:blur(25px);
-
-border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-0 0 25px rgba(41,182,255,.35),
-0 0 45px rgba(139,92,246,.25),
-inset 0 2px 12px rgba(255,255,255,.25),
-inset 0 -10px 20px rgba(0,0,0,.35);
-
-transform-style:preserve-3d;
-
-}
-
-.coin-ring{
-
-border:2px solid rgba(255,255,255,.2);
-
-box-shadow:
-0 0 15px rgba(41,182,255,.7),
-0 0 30px rgba(139,92,246,.5);
-
-}
-
-/* ROTATING SHINE */
-
-.coin-ring::before{
-
-content:"";
-
-position:absolute;
-
-width:18px;
-height:18px;
-
-border-radius:50%;
-
-background:white;
-
-box-shadow:
-0 0 15px white,
-0 0 35px #29b6ff,
-0 0 50px #8b5cf6;
-
-top:-6px;
-left:50%;
-
-transform:translateX(-50%);
-
-animation:ringLight 6s linear infinite;
-
-}
-
-@keyframes ringLight{
-
-0%{
-transform:
-rotate(0deg)
-translateY(-35px)
-translateX(-50%);
-}
-
-100%{
-transform:
-rotate(360deg)
-translateY(-35px)
-translateX(-50%);
-}
-
-}
-
-/* INNER */
-
-.coin-inner{
-
-background:
-radial-gradient(
-circle at top,
-rgba(255,255,255,.25),
-rgba(255,255,255,.04)
-);
-
-box-shadow:
-inset 0 2px 12px rgba(255,255,255,.2),
-inset 0 -8px 14px rgba(0,0,0,.4);
-
-}
-
-/* CFA */
-
-.coin-cfa{
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#8be7ff,
-#ffffff
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 10px rgba(41,182,255,.7),
-0 0 20px rgba(139,92,246,.4);
-
-}
-
-/* AI */
-
-.coin-ai{
-
-background:
-linear-gradient(
-90deg,
-#ff8de8,
-#ffffff,
-#29b6ff
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 8px rgba(255,79,216,.6);
-
-}
-
-/* =======================================================
-LOGO ANIMATION
-======================================================= */
-
-.coin-logo{
-
-animation:
-coinFloat 6s ease-in-out infinite;
-
-}
-
-@keyframes coinFloat{
-
-0%{
-
-transform:
-translateY(0)
-rotateY(0deg);
-
-}
-
-25%{
-
-transform:
-translateY(-4px)
-rotateY(15deg);
-
-}
-
-50%{
-
-transform:
-translateY(-8px)
-rotateY(-18deg);
-
-}
-
-75%{
-
-transform:
-translateY(-3px)
-rotateY(12deg);
-
-}
-
-100%{
-
-transform:
-translateY(0)
-rotateY(0deg);
-
-}
-
-}
-
-/* =======================================================
-BRAND TEXT
-======================================================= */
-
-.brand-title{
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#8ce8ff,
-#d6c0ff,
-#ffffff
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 15px rgba(41,182,255,.4),
-0 0 30px rgba(139,92,246,.25);
-
-}
-
-.brand-sub{
-
-color:#d7defa;
-
-}
-
-/* =======================================================
-HEADER GLASS
-======================================================= */
-
-.header{
-
-box-shadow:
-0 10px 40px rgba(0,0,0,.3),
-0 0 30px rgba(41,182,255,.08);
-
-}
-
-/* HEADER SHINE */
-
-.header-shine{
-
-background:
-linear-gradient(
-110deg,
-transparent 0%,
-rgba(255,255,255,.04) 45%,
-rgba(255,255,255,.12) 50%,
-rgba(255,255,255,.04) 55%,
-transparent 100%
-);
-
-transform:translateX(-120%);
-
-animation:
-headerSweep 10s linear infinite;
-
-}
-
-@keyframes headerSweep{
-
-0%{
-transform:translateX(-120%);
-}
-
-100%{
-transform:translateX(130%);
-}
-
-}
-
-/* =======================================================
-MENU LINKS
-======================================================= */
 
 .desktop-menu a{
-
-transition:.35s;
-
-}
-
-.desktop-menu a::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0;
-height:2px;
-
-background:
-linear-gradient(
-90deg,
-#29b6ff,
-#8b5cf6
-);
-
-border-radius:20px;
-
-transition:.35s;
-
+color:white;
+text-decoration:none;
 }
 
 .desktop-menu a:hover{
-
-color:#9ce9ff;
-
+color:#29b6ff;
 }
 
-.desktop-menu a:hover::before{
-
-width:100%;
-
+/* BUTTONS */
+.login-btn,.start-btn{
+padding:10px 18px;
+border:none;
+cursor:pointer;
+border-radius:10px;
 }
-
-/* ICON */
-
-.nav-icon{
-
-width:18px;
-height:18px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-}
-
-/* =======================================================
-LOGIN BUTTON
-======================================================= */
-
-.login-btn{
-
-border:1px solid rgba(255,255,255,.25);
-
-background:
-rgba(255,255,255,.03);
-
-color:white;
-
-backdrop-filter:blur(20px);
-
-transition:.35s;
-
-}
-
-.login-btn:hover{
-
-transform:translateY(-3px);
-
-border-color:#29b6ff;
-
-box-shadow:
-0 0 18px rgba(41,182,255,.4);
-
-}
-
-/* =======================================================
-GET STARTED BUTTON
-======================================================= */
 
 .start-btn{
-
-background:
-linear-gradient(
-135deg,
-#29b6ff,
-#8b5cf6,
-#ff4fd8
-);
-
+background:linear-gradient(90deg,#29b6ff,#8b5cf6);
 color:white;
-
-transition:.35s;
-
-box-shadow:
-0 0 20px rgba(41,182,255,.4),
-0 0 40px rgba(139,92,246,.25);
-
 }
 
-.start-btn:hover{
-
-transform:
-translateY(-3px)
-scale(1.03);
-
-box-shadow:
-0 0 25px rgba(41,182,255,.6),
-0 0 55px rgba(139,92,246,.45);
-
-}
-
-/* =======================================================
-HAMBURGER COIN
-======================================================= */
-
+/* MOBILE */
 .mobile-trigger{
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.18),
-rgba(255,255,255,.04)
-);
-
-border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-0 0 18px rgba(41,182,255,.25);
-
+display:none;
+cursor:pointer;
 }
 
-.hamburger span{
-
-background:
-linear-gradient(
-90deg,
-#29b6ff,
-#8b5cf6
-);
-
-box-shadow:
-0 0 8px rgba(41,182,255,.6);
-
+@media(max-width:768px){
+.desktop-menu{display:none;}
+.mobile-trigger{display:block;}
 }
 
-/* =======================================================
-MOBILE MENU
-======================================================= */
-
+/* MOBILE MENU */
 .mobile-menu{
+position:fixed;
+right:-300px;
+top:0;
+width:260px;
+height:100vh;
+background:#0b1024;
+padding:20px;
+transition:.3s;
+z-index:1000;
+}
 
-background:
-rgba(7,10,24,.92);
-
-backdrop-filter:blur(25px);
-
-border-left:
-1px solid rgba(255,255,255,.08);
-
-box-shadow:
--20px 0 50px rgba(0,0,0,.4);
-
+.close-menu{
+cursor:pointer;
+font-size:20px;
+margin-bottom:20px;
 }
 
 .mobile-item{
-
-background:
-rgba(255,255,255,.04);
-
-border:
-1px solid rgba(255,255,255,.06);
-
-transition:.35s;
-
+padding:15px;
+background:rgba(255,255,255,.05);
+margin-top:10px;
+cursor:pointer;
 }
 
-.mobile-item:hover{
-
-transform:translateX(6px);
-
-border-color:
-rgba(41,182,255,.4);
-
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-weight:800;
 }
 
-/* =======================================================
-COMING SOON POPUP
-======================================================= */
+</style>
+</head>
 
-.popup-overlay{
+<body>
 
-background:
-rgba(0,0,0,.65);
+<!-- PARTICLES -->
+<div class="particles"></div>
 
-backdrop-filter:blur(10px);
+<!-- HEADER -->
+<header class="header">
 
+<div class="brand-area">
+<div class="coin-logo">AI</div>
+<div>
+<h3>CFA AI</h3>
+</div>
+</div>
+
+<nav class="desktop-menu">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+<div style="display:flex;gap:10px;align-items:center;">
+<button class="login-btn">Login</button>
+<button class="start-btn">Start</button>
+
+<div class="mobile-trigger">☰</div>
+</div>
+
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+<div class="close-menu">✖ Close</div>
+<div class="mobile-item">Home</div>
+<div class="mobile-item">About</div>
+<div class="mobile-item">Services</div>
+<div class="mobile-item">Contact</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+CFA AI HEADER
+</div>
+
+<script>
+
+/* MOBILE MENU */
+const menu = document.querySelector(".mobile-menu");
+const btn = document.querySelector(".mobile-trigger");
+const close = document.querySelector(".close-menu");
+
+btn.onclick = () => {
+menu.style.right = "0";
+};
+
+close.onclick = () => {
+menu.style.right = "-300px";
+};
+
+/* PARTICLES */
+const particles = document.querySelector(".particles");
+
+for(let i=0;i<40;i++){
+let p = document.createElement("div");
+p.style.position="absolute";
+p.style.width="4px";
+p.style.height="4px";
+p.style.background="#29b6ff";
+p.style.left=Math.random()*100+"%";
+p.style.top=Math.random()*100+"%";
+p.style.opacity=Math.random();
+particles.appendChild(p);
 }
 
-.popup-box{
+</script>
 
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.12),
-rgba(255,255,255,.04)
-);
-
-border:
-1px solid rgba(255,255,255,.15);
-
-backdrop-filter:blur(25px);
-
-box-shadow:
-0 0 30px rgba(41,182,255,.25),
-0 0 60px rgba(139,92,246,.2);
-
-}
-
-.popup-box::before{
-
-content:"";
-
-position:absolute;
-
-inset:-2px;
-
-border-radius:30px;
-
-padding:2px;
-
-background:
-linear-gradient(
-90deg,
-#29b6ff,
-#8b5cf6,
-#ff4fd8,
-#29b6ff
-);
-
-}
-
-/* =======================================================
-PARTICLES
-======================================================= */
-
-.particle{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-border-radius:50%;
-
-background:#8ce8ff;
-
-box-shadow:
-0 0 12px #29b6ff;
-
-  }  
-  </style>
+</body>
 </html>
