@@ -18,7 +18,7 @@ body{
     font-family:Arial,sans-serif;
 }
 
-/* STARS CONTAINER */
+/* ⭐ STARS BACKGROUND */
 .stars{
     position:fixed;
     inset:0;
@@ -26,7 +26,6 @@ body{
     z-index:0;
 }
 
-/* STAR PARTICLES */
 .star{
     position:absolute;
     bottom:-10px;
@@ -44,9 +43,7 @@ body{
         transform:translateY(0);
         opacity:0;
     }
-    10%{
-        opacity:1;
-    }
+    10%{opacity:1;}
     to{
         transform:translateY(-110vh);
         opacity:0;
@@ -63,10 +60,14 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     border-radius:25px;
+    overflow:hidden; /* ⭐ IMPORTANT FIX (shine inside only) */
+
     background:rgba(20,20,60,.4);
     backdrop-filter:blur(15px);
     border:1px solid rgba(255,255,255,.15);
+
     box-shadow:0 0 20px #0055ff,0 0 35px #cc00ff;
 }
 
@@ -132,21 +133,31 @@ button:hover{
     box-shadow:0 0 25px cyan,0 0 35px magenta;
 }
 
-/* SHINE EFFECT */
+/* ✨ SHINE (FIXED INSIDE ONLY) */
 .navbar::before{
     content:"";
     position:absolute;
-    top:0;
-    left:-120%;
-    width:40%;
-    height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    top:-50%;
+    left:-60%;
+    width:50%;
+    height:200%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
     transform:skewX(-25deg);
-    animation:shine 5s infinite linear;
+    animation:shine 6s infinite linear;
+    pointer-events:none;
 }
 
 @keyframes shine{
-    100%{ left:150%; }
+    100%{
+        left:160%;
+    }
 }
 </style>
 
@@ -180,21 +191,19 @@ function comingSoon(){
     alert("Coming Soon 🚀");
 }
 
-/* ⭐ STAR GENERATOR */
+/* ⭐ STAR SYSTEM (MEDIUM SPEED FIX) */
 const starsContainer = document.querySelector(".stars");
 
 function createStar(){
     const star = document.createElement("div");
     star.classList.add("star");
 
-    // random position
     star.style.left = Math.random() * 100 + "vw";
 
-    // speed (near = fast, far = slow)
-    const duration = Math.random() * 5 + 3;
+    // ⭐ medium speed (not too fast, not too slow)
+    const duration = Math.random() * 2.5 + 4.5;
     star.style.animationDuration = duration + "s";
 
-    // size variation
     const size = Math.random() * 3 + 1;
     star.style.width = size + "px";
     star.style.height = size + "px";
@@ -206,7 +215,7 @@ function createStar(){
     }, duration * 1000);
 }
 
-setInterval(createStar, 80);
+setInterval(createStar, 90);
 </script>
 
 </body>
