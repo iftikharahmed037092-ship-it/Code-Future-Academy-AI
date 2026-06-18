@@ -173,6 +173,29 @@ if(!localStorage.getItem("userLoggedIn")){
 
 <body>
 
+    <!-- MENU ICON -->
+<div class="menu-icon" onclick="toggleMenu()">
+    ☰
+</div>
+
+<!-- SIDEBAR MENU -->
+<div id="sideMenu" class="side-menu">
+
+    <a href="#">Home</a>
+    <a href="#">Templates</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Support</a>
+    <a href="#">Help</a>
+    <a href="#">Settings</a>
+
+    <!-- LOGOUT (BOTTOM FIX) -->
+    <div class="logout" onclick="logout()">
+        Logout
+    </div>
+
+</div>
+
 <div class="stars"></div>
 
 <header class="navbar">
