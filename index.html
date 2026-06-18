@@ -925,5 +925,159 @@ function openTemplate(name){
 
 </section>
 
+    <style>
+.footer{
+
+    width:90%;
+
+    margin:100px auto 30px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+}
+
+/* Shine Effect */
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:35%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.2),
+    transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:footerShine 7s linear infinite;
+}
+
+@keyframes footerShine{
+
+    100%{
+        left:140%;
+    }
+
+}
+
+.footer-logo{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #00c6ff,
+    #ff00ff,
+    #00ffcc
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.footer-text{
+
+    color:#cccccc;
+
+    margin-bottom:25px;
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+}
+
+.footer-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.footer-links a:hover{
+
+    color:#00d9ff;
+
+    text-shadow:
+    0 0 10px #00d9ff;
+}
+
+.footer-copy{
+
+    color:#888;
+}
+</style>
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        Code Future Academy AI
+    </div>
+
+    <div class="footer-text">
+        Create modern websites with AI-powered templates.
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#" onclick="comingSoon()">Home</a>
+
+        <a href="#" onclick="comingSoon()">Templates</a>
+
+        <a href="#" onclick="comingSoon()">Features</a>
+
+        <a href="#" onclick="comingSoon()">Support</a>
+
+        <a href="#" onclick="comingSoon()">Contact</a>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 Code Future Academy AI. All Rights Reserved.
+    </div>
+
+</footer>
+
 </body>
 </html>
