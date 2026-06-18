@@ -1,0 +1,145 @@
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#050510;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+/* MAIN BOX */
+.box{
+    width:380px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    overflow:hidden;
+    position:relative;
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+}
+
+.tabs div{
+    flex:1;
+    text-align:center;
+    padding:15px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.03);
+    transition:0.3s;
+}
+
+.tabs .active{
+    background:linear-gradient(90deg,#00c6ff,#ff00ff);
+}
+
+/* FORM */
+.form{
+    padding:25px;
+    display:none;
+}
+
+.form.active{
+    display:block;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:rgba(0,0,0,0.3);
+    color:white;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00c6ff,#ff00ff);
+    color:white;
+    cursor:pointer;
+}
+
+/* SHINE */
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+    transform:skewX(-20deg);
+    animation:shine 5s infinite linear;
+}
+
+@keyframes shine{
+    100%{ left:140%; }
+}
+</style>
+
+<div class="box">
+
+    <!-- TABS -->
+    <div class="tabs">
+        <div id="loginTab" class="active" onclick="showLogin()">Login</div>
+        <div id="signupTab" onclick="showSignup()">Signup</div>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginForm" class="form active">
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- SIGNUP -->
+    <div id="signupForm" class="form">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+        <button onclick="signup()">Create Account</button>
+    </div>
+
+</div>
+
+<script>
+function showLogin(){
+    document.getElementById("loginForm").classList.add("active");
+    document.getElementById("signupForm").classList.remove("active");
+
+    document.getElementById("loginTab").classList.add("active");
+    document.getElementById("signupTab").classList.remove("active");
+}
+
+function showSignup(){
+    document.getElementById("signupForm").classList.add("active");
+    document.getElementById("loginForm").classList.remove("active");
+
+    document.getElementById("signupTab").classList.add("active");
+    document.getElementById("loginTab").classList.remove("active");
+}
+
+/* SIMPLE LOGIN SYSTEM */
+function login(){
+    localStorage.setItem("userLoggedIn", "true");
+    window.location.href = "index.html";
+}
+
+/* SIGNUP FIRST THEN LOGIN */
+function signup(){
+    alert("Account Created 🚀 Now Login");
+    showLogin();
+}
+</script>
