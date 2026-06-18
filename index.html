@@ -336,5 +336,111 @@ function comingSoon(){
 }
 </script>
 
+    <style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#050510;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ⭐ TITLE */
+.title{
+    text-align:center;
+    margin-top:40px;
+    font-size:32px;
+    background:linear-gradient(90deg,#00c6ff,#ff00ff,#00ffcc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ⭐ GRID */
+.grid{
+    width:90%;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* ⭐ CARD */
+.card{
+    height:160px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+/* hover glow */
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00c6ff,0 0 40px #ff00ff;
+}
+
+/* ⭐ moving light */
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+    transform:skewX(-20deg);
+    animation:shine 4s infinite linear;
+}
+
+@keyframes shine{
+    100%{ left:150%; }
+}
+
+/* inner text */
+.card span{
+    position:relative;
+    z-index:2;
+}
+
+/* colors */
+.c1{color:#00c6ff}
+.c2{color:#ff00cc}
+.c3{color:#00ffcc}
+.c4{color:#ffcc00}
+</style>
+
+<h1 class="title">AI TEMPLATE SELECTOR</h1>
+
+<div class="grid">
+
+    <div class="card" onclick="openTemplate('Business')"><span class="c1">Business Site</span></div>
+    <div class="card" onclick="openTemplate('Portfolio')"><span class="c2">Portfolio</span></div>
+    <div class="card" onclick="openTemplate('Ecommerce')"><span class="c3">E-commerce</span></div>
+    <div class="card" onclick="openTemplate('App')"><span class="c4">App Landing</span></div>
+
+    <div class="card" onclick="openTemplate('Education')"><span class="c1">Education</span></div>
+    <div class="card" onclick="openTemplate('Blog')"><span class="c2">Blog</span></div>
+    <div class="card" onclick="openTemplate('Agency')"><span class="c3">Agency</span></div>
+    <div class="card" onclick="openTemplate('Gaming')"><span class="c4">Gaming</span></div>
+
+    <div class="card" onclick="openTemplate('CV')"><span class="c1">Resume CV</span></div>
+    <div class="card" onclick="openTemplate('AI')"><span class="c2">AI Dashboard</span></div>
+
+</div>
+
+<script>
+function openTemplate(name){
+    alert(name + " Template Coming Soon 🚀");
+}
+</script>
+
 </body>
 </html>
