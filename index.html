@@ -2,226 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CFA AI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-
-/* RESET */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:#050714;
-color:white;
-overflow-x:hidden;
+    background:#050510;
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:Arial,sans-serif;
 }
 
-/* PARTICLES */
-.particles{
-position:fixed;
-inset:0;
-z-index:-1;
-pointer-events:none;
+/* STARS CONTAINER */
+.stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+/* STAR PARTICLES */
+.star{
+    position:absolute;
+    bottom:-10px;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    box-shadow:0 0 6px white;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
 }
 
 /* HEADER */
-.header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-backdrop-filter:blur(20px);
-background:rgba(0,0,0,.4);
-z-index:999;
+.navbar{
+    position:relative;
+    z-index:10;
+    width:95%;
+    margin:30px auto;
+    padding:20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-radius:25px;
+    background:rgba(20,20,60,.4);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 0 20px #0055ff,0 0 35px #cc00ff;
 }
 
-/* BRAND */
-.brand-area{
-display:flex;
-align-items:center;
-gap:12px;
+/* LOGO */
+.logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    background:linear-gradient(135deg,#00aaff,#ff00ff);
+    box-shadow:0 0 20px #00aaff,0 0 40px #ff00ff;
 }
 
-.coin-logo{
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(145deg,#29b6ff,#8b5cf6);
-animation:float 5s infinite ease-in-out;
+/* NAV */
+nav{
+    display:flex;
+    gap:35px;
 }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-6px);}
-100%{transform:translateY(0);}
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
 }
 
-/* MENU */
-.desktop-menu{
-display:flex;
-gap:20px;
-}
-
-.desktop-menu a{
-color:white;
-text-decoration:none;
-}
-
-.desktop-menu a:hover{
-color:#29b6ff;
+nav a:hover{
+    color:#00d9ff;
+    text-shadow:0 0 10px #00d9ff,0 0 20px #00d9ff;
 }
 
 /* BUTTONS */
-.login-btn,.start-btn{
-padding:10px 18px;
-border:none;
-cursor:pointer;
-border-radius:10px;
+.buttons{
+    display:flex;
+    gap:15px;
 }
 
-.start-btn{
-background:linear-gradient(90deg,#29b6ff,#8b5cf6);
-color:white;
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
 }
 
-/* MOBILE */
-.mobile-trigger{
-display:none;
-cursor:pointer;
+button:first-child{
+    background:#101050;
+    box-shadow:0 0 15px #3355ff;
 }
 
-@media(max-width:768px){
-.desktop-menu{display:none;}
-.mobile-trigger{display:block;}
+button:last-child{
+    background:linear-gradient(to right,#0066ff,#ff00ff);
+    box-shadow:0 0 15px #0066ff,0 0 20px #ff00ff;
 }
 
-/* MOBILE MENU */
-.mobile-menu{
-position:fixed;
-right:-300px;
-top:0;
-width:260px;
-height:100vh;
-background:#0b1024;
-padding:20px;
-transition:.3s;
-z-index:1000;
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px cyan,0 0 35px magenta;
 }
 
-.close-menu{
-cursor:pointer;
-font-size:20px;
-margin-bottom:20px;
+/* SHINE EFFECT */
+.navbar::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    transform:skewX(-25deg);
+    animation:shine 5s infinite linear;
 }
 
-.mobile-item{
-padding:15px;
-background:rgba(255,255,255,.05);
-margin-top:10px;
-cursor:pointer;
+@keyframes shine{
+    100%{ left:150%; }
 }
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:40px;
-font-weight:800;
-}
-
 </style>
+
 </head>
 
 <body>
 
-<!-- PARTICLES -->
-<div class="particles"></div>
+<div class="stars"></div>
 
-<!-- HEADER -->
-<header class="header">
+<header class="navbar">
 
-<div class="brand-area">
-<div class="coin-logo">AI</div>
-<div>
-<h3>CFA AI</h3>
-</div>
-</div>
+    <div class="logo">CFA AI</div>
 
-<nav class="desktop-menu">
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Services</a>
-<a href="#">Contact</a>
-</nav>
+    <nav>
+        <a href="#" onclick="comingSoon()">Home</a>
+        <a href="#" onclick="comingSoon()">Templates</a>
+        <a href="#" onclick="comingSoon()">Features</a>
+        <a href="#" onclick="comingSoon()">Pricing</a>
+        <a href="#" onclick="comingSoon()">Support</a>
+    </nav>
 
-<div style="display:flex;gap:10px;align-items:center;">
-<button class="login-btn">Login</button>
-<button class="start-btn">Start</button>
-
-<div class="mobile-trigger">☰</div>
-</div>
+    <div class="buttons">
+        <button onclick="comingSoon()">Login</button>
+        <button onclick="comingSoon()">Get Started</button>
+    </div>
 
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu">
-<div class="close-menu">✖ Close</div>
-<div class="mobile-item">Home</div>
-<div class="mobile-item">About</div>
-<div class="mobile-item">Services</div>
-<div class="mobile-item">Contact</div>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-CFA AI HEADER
-</div>
-
 <script>
-
-/* MOBILE MENU */
-const menu = document.querySelector(".mobile-menu");
-const btn = document.querySelector(".mobile-trigger");
-const close = document.querySelector(".close-menu");
-
-btn.onclick = () => {
-menu.style.right = "0";
-};
-
-close.onclick = () => {
-menu.style.right = "-300px";
-};
-
-/* PARTICLES */
-const particles = document.querySelector(".particles");
-
-for(let i=0;i<40;i++){
-let p = document.createElement("div");
-p.style.position="absolute";
-p.style.width="4px";
-p.style.height="4px";
-p.style.background="#29b6ff";
-p.style.left=Math.random()*100+"%";
-p.style.top=Math.random()*100+"%";
-p.style.opacity=Math.random();
-particles.appendChild(p);
+function comingSoon(){
+    alert("Coming Soon 🚀");
 }
 
+/* ⭐ STAR GENERATOR */
+const starsContainer = document.querySelector(".stars");
+
+function createStar(){
+    const star = document.createElement("div");
+    star.classList.add("star");
+
+    // random position
+    star.style.left = Math.random() * 100 + "vw";
+
+    // speed (near = fast, far = slow)
+    const duration = Math.random() * 5 + 3;
+    star.style.animationDuration = duration + "s";
+
+    // size variation
+    const size = Math.random() * 3 + 1;
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    starsContainer.appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, duration * 1000);
+}
+
+setInterval(createStar, 80);
 </script>
 
 </body>
