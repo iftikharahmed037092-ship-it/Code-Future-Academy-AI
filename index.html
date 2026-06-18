@@ -217,6 +217,124 @@ function createStar(){
 
 setInterval(createStar, 90);
 </script>
+    <style>
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:90%;
+    margin:80px auto;
+    color:white;
+    position:relative;
+}
+
+/* TEXT */
+.hero-text h1{
+    font-size:55px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* COLORS */
+.blue{
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.pink{
+    background:linear-gradient(90deg,#ff00cc,#ff66ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.ai{
+    background:linear-gradient(90deg,#00ffcc,#6600ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* SHINE */
+.hero-text h1::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+    transform:skewX(-20deg);
+    animation:shine 4s infinite linear;
+}
+
+@keyframes shine{
+    100%{ left:120%; }
+}
+
+/* BUTTON */
+.hero button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#0066ff,#ff00ff);
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 20px #0066ff;
+}
+
+/* CARD */
+.hero-card{
+    width:280px;
+    height:300px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+.card-inner{
+    color:#00ffff;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+</style>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Code <span class="blue">Future</span>
+            <span class="pink">Academy</span>
+            <span class="ai">AI</span>
+        </h1>
+
+        <button onclick="comingSoon()">Start Building</button>
+
+    </div>
+
+    <div class="hero-card">
+        <div class="card-inner">AI TOOL PREVIEW</div>
+    </div>
+
+</section>
+
+<script>
+function comingSoon(){
+    alert("Coming Soon 🚀");
+}
+</script>
 
 </body>
 </html>
