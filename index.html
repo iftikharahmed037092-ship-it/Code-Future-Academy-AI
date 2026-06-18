@@ -442,5 +442,158 @@ function openTemplate(name){
 }
 </script>
 
+    <style>
+.features{
+    width:90%;
+    margin:100px auto;
+    text-align:center;
+}
+
+.features-title{
+    font-size:40px;
+    margin-bottom:50px;
+    background:linear-gradient(90deg,#00c6ff,#ff00ff,#00ffcc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    padding:30px 20px;
+
+    backdrop-filter:blur(15px);
+
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 20px #00c6ff,
+    0 0 35px #ff00ff;
+}
+
+/* Moving Light */
+.feature-card::before{
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:40%;
+    height:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:cardShine 5s linear infinite;
+}
+
+@keyframes cardShine{
+    100%{
+        left:150%;
+    }
+}
+
+.feature-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.feature-title{
+    font-size:22px;
+    margin-bottom:12px;
+    color:#00d9ff;
+}
+
+.feature-text{
+    color:#cccccc;
+    line-height:1.6;
+}
+</style>
+
+<section class="features">
+
+    <h2 class="features-title">
+        Powerful AI Features
+    </h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">🚀</div>
+            <div class="feature-title">Instant Templates</div>
+            <div class="feature-text">
+                Generate beautiful websites in seconds.
+            </div>
+        </div>
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Customize Design</div>
+            <div class="feature-text">
+                Change colors, text and layout easily.
+            </div>
+        </div>
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">📋</div>
+            <div class="feature-title">Copy Code</div>
+            <div class="feature-text">
+                Get ready-to-use HTML, CSS and JavaScript.
+            </div>
+        </div>
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">Responsive Design</div>
+            <div class="feature-text">
+                Templates work on mobile and desktop.
+            </div>
+        </div>
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">Fast Performance</div>
+            <div class="feature-text">
+                Optimized for speed and user experience.
+            </div>
+        </div>
+
+        <div class="feature-card" onclick="comingSoon()">
+            <div class="feature-icon">🤖</div>
+            <div class="feature-title">AI Powered</div>
+            <div class="feature-text">
+                Smart tools to create websites faster.
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
 </body>
 </html>
