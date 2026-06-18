@@ -790,5 +790,140 @@ function openTemplate(name){
 
 </section>
 
+    <style>
+.faq{
+    width:90%;
+    margin:100px auto;
+}
+
+.faq-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+
+    background:linear-gradient(
+    90deg,
+    #00c6ff,
+    #ff00ff,
+    #00ffcc
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.faq-box{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    margin-bottom:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.faq-box:hover{
+    box-shadow:
+    0 0 15px #00c6ff,
+    0 0 25px #ff00ff;
+}
+
+.faq-box::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:35%;
+    height:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.2),
+    transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:faqShine 6s linear infinite;
+}
+
+@keyframes faqShine{
+    100%{
+        left:140%;
+    }
+}
+
+.faq-question{
+    padding:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#00d9ff;
+}
+
+.faq-answer{
+    padding:0 20px 20px;
+    color:#cccccc;
+}
+</style>
+
+<section class="faq">
+
+    <h2 class="faq-title">
+        Frequently Asked Questions
+    </h2>
+
+    <div class="faq-box">
+        <div class="faq-question">
+            Is this AI Website Builder free?
+        </div>
+        <div class="faq-answer">
+            Yes, basic features are free to use.
+        </div>
+    </div>
+
+    <div class="faq-box">
+        <div class="faq-question">
+            Can I copy the generated code?
+        </div>
+        <div class="faq-answer">
+            Yes, you can copy and use the code anywhere.
+        </div>
+    </div>
+
+    <div class="faq-box">
+        <div class="faq-question">
+            Are templates mobile responsive?
+        </div>
+        <div class="faq-answer">
+            Yes, templates work on mobile, tablet and desktop.
+        </div>
+    </div>
+
+    <div class="faq-box">
+        <div class="faq-question">
+            Do I need coding knowledge?
+        </div>
+        <div class="faq-answer">
+            No, the AI helps generate the website for you.
+        </div>
+    </div>
+
+</section>
+
 </body>
 </html>
