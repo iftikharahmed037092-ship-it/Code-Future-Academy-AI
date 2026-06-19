@@ -1089,36 +1089,55 @@ function openTemplate(name){
 
 /* NEW MENU / SIDEBAR CSS START */
 .menu-icon{
-    font-size:60px;   /* بڑا icon */
+    font-size:45px;
     color:white;
     cursor:pointer;
     display:flex;
     align-items:center;
     justify-content:center;
+    flex-shrink:0;
 }
 
 .logo{
-    font-size:32px;   /* بڑا logo */
-    font-weight:bold;
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     color:white;
+    font-size:18px;
+    font-weight:bold;
+    background:linear-gradient(135deg,#00aaff,#ff00ff);
+    box-shadow:0 0 20px #00aaff,0 0 40px #ff00ff;
+    flex-shrink:0;
 }
 
-/* header spacing fix */
 .navbar{
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:flex-start;
+    gap:20px;
     padding:15px 25px;
 }
 
-    
+nav{
+    display:flex;
+    gap:25px;
+    margin-left:auto;
+}
 
-/* buttons bigger look */
+.buttons{
+    display:flex;
+    gap:10px;
+}
+
 .buttons button{
     padding:10px 18px;
     font-size:16px;
 }
 
+/* SIDEBAR */
 .side-menu{
     position:fixed;
     top:0;
@@ -1148,7 +1167,7 @@ function openTemplate(name){
     left:20px;
     color:red;
     cursor:pointer;
-    }
+}
 </style>
 
 <footer class="footer">
