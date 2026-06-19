@@ -250,23 +250,11 @@ setInterval(createStar, 90);
     function goLogin(){
     window.location.href = "login.html";
 }
-
- function toggleMenu(){
-
-    let menu =
-    document.getElementById("sideMenu");
-
-    if(menu.style.left === "0px"){
-
-        menu.style.left = "-260px";
-
-    }else{
-
-        menu.style.left = "0px";
-
-    }
-
+    
+function toggleMenu(){
+    document.getElementById("sideMenu").classList.toggle("active");
 }
+    
 </script>
     <style>
 .hero{
@@ -1097,24 +1085,17 @@ function openTemplate(name){
     color:#888;
 
 /* NEW MENU / SIDEBAR CSS START */
-.menu-icon{
-    font-size:55px;
-    color:white;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
 .side-menu{
     position:fixed;
     top:0;
     left:-260px;
     width:250px;
     height:100vh;
-    background:rgba(0,0,0,0.9);
+    background:rgba(0,0,0,0.95);
     backdrop-filter:blur(10px);
-    transition:0.4s;
+    transition:0.4s ease;
+    z-index:9999;
+    padding-top:60px;
 }
 
 .side-menu a{
@@ -1122,6 +1103,21 @@ function openTemplate(name){
     text-decoration:none;
     display:block;
     padding:12px 20px;
+    font-size:16px;
+}
+
+/* open state (ضروری ہے) */
+.side-menu.active{
+    left:0;
+}
+
+/* logout bottom fix */
+.logout{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    color:red;
+    cursor:pointer;
 }
 </style>
 
