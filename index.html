@@ -195,12 +195,15 @@ if(!localStorage.getItem("userLoggedIn")){
 
 <header class="navbar">
 
-    <div class="logo">CFA AI</div>
-    
-  <div class="menu-icon" onclick="toggleMenu()">
+    <!-- MENU FIRST -->
+    <div class="menu-icon" onclick="toggleMenu()">
         ☰
     </div>
 
+    <!-- LOGO SECOND -->
+    <div class="logo">CFA AI</div>
+    
+    <!-- NAV THIRD -->
     <nav>
         <a href="#" onclick="comingSoon()">Home</a>
         <a href="#" onclick="comingSoon()">Templates</a>
@@ -209,6 +212,7 @@ if(!localStorage.getItem("userLoggedIn")){
         <a href="#" onclick="comingSoon()">Support</a>
     </nav>
 
+    <!-- BUTTONS LAST -->
     <div class="buttons">
         <button onclick="goLogin()">Login</button>
         <button onclick="comingSoon()">Get Started</button>
