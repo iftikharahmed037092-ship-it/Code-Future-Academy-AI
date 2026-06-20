@@ -71,6 +71,17 @@ body{
     color:white;
     padding:15px;
 }
+    .resizer-left,
+.resizer-right{
+    width:6px;
+    background:#444;
+    cursor:col-resize;
+}
+
+.resizer-left:hover,
+.resizer-right:hover{
+    background:#00c6ff;
+}
 </style>
 </head>
 
@@ -107,8 +118,66 @@ body{
     <div class="right-panel">
         Settings Panel
     </div>
+    <div class="left-panel">
+    Elements Panel
+</div>
+
+<div class="resizer-left"></div>
+
+<div class="canvas-area">
+    ...
+</div>
+
+<div class="resizer-right"></div>
+
+<div class="right-panel">
+    Settings Panel
+</div>
 
 </div>
+
+<script>
+
+const leftPanel = document.querySelector(".left-panel");
+const rightPanel = document.querySelector(".right-panel");
+
+const leftResizer = document.querySelector(".resizer-left");
+const rightResizer = document.querySelector(".resizer-right");
+
+/* LEFT PANEL */
+leftResizer.addEventListener("mousedown", function(){
+
+    function move(e){
+        leftPanel.style.width = e.clientX + "px";
+    }
+
+    function stop(){
+        document.removeEventListener("mousemove", move);
+        document.removeEventListener("mouseup", stop);
+    }
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", stop);
+});
+
+/* RIGHT PANEL */
+rightResizer.addEventListener("mousedown", function(){
+
+    function move(e){
+        rightPanel.style.width =
+        (window.innerWidth - e.clientX) + "px";
+    }
+
+    function stop(){
+        document.removeEventListener("mousemove", move);
+        document.removeEventListener("mouseup", stop);
+    }
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", stop);
+});
+
+</script>
 
 </body>
 </html>
