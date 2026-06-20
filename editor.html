@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor - CFA AI</title>
+
+<style>
+
+/* ======================
+   BASIC RESET
+====================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    background:#050510;
+    color:white;
+    overflow:hidden;
+}
+
+/* ======================
+   MAIN LAYOUT
+====================== */
+.editor{
+    display:flex;
+    height:100vh;
+}
+
+/* LEFT PANEL */
+.left{
+    width:200px;
+    background:rgba(255,255,255,0.05);
+    border-right:1px solid rgba(255,255,255,0.1);
+    padding:10px;
+}
+
+/* CENTER CANVAS */
+.canvas{
+    flex:1;
+    background:#0a0a1a;
+    padding:20px;
+    overflow:auto;
+}
+
+/* RIGHT PANEL */
+.right{
+    width:250px;
+    background:rgba(255,255,255,0.05);
+    border-left:1px solid rgba(255,255,255,0.1);
+    padding:10px;
+}
+
+/* ======================
+   BASIC ELEMENTS
+====================== */
+.btn{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:none;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(90deg,#0066ff,#ff00ff);
+    border-radius:8px;
+}
+
+.block{
+    padding:15px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.block:hover{
+    outline:2px solid #00c6ff;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="editor">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <button class="btn" onclick="addText()">+ Text</button>
+        <button class="btn" onclick="addBox()">+ Box</button>
+        <button class="btn" onclick="clearCanvas()">Clear</button>
+
+    </div>
+
+    <!-- CENTER -->
+    <div class="canvas" id="canvas">
+
+        <div class="block" onclick="select(this)">
+            Click me to select
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <h3>Properties</h3>
+        <p id="info">No selection</p>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ======================
+   GLOBAL STATE
+====================== */
+let selected = null;
+
+/* ======================
+   SELECT ELEMENT
+====================== */
+function select(el){
+    selected = el;
+    document.getElementById("info").innerText =
+    "Element Selected ✔";
+}
+
+/* ======================
+   ADD TEXT BLOCK
+====================== */
+function addText(){
+
+    let div = document.createElement("div");
+    div.className = "block";
+    div.innerText = "New Text";
+    div.onclick = function(){
+        select(this);
+    };
+
+    document.getElementById("canvas").appendChild(div);
+}
+
+/* ======================
+   ADD BOX BLOCK
+====================== */
+function addBox(){
+
+    let div = document.createElement("div");
+    div.className = "block";
+    div.innerText = "New Box";
+    div.onclick = function(){
+        select(this);
+    };
+
+    document.getElementById("canvas").appendChild(div);
+}
+
+/* ======================
+   CLEAR CANVAS
+====================== */
+function clearCanvas(){
+    document.getElementById("canvas").innerHTML =
+    '<div class="block">Click me to select</div>';
+}
+
+</script>
+
+</body>
+</html>
