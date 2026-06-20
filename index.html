@@ -207,20 +207,25 @@ if(!localStorage.getItem("userLoggedIn")){
     <!-- LOGO -->
     <div class="logo">CFA AI</div>
 
-    <!-- NAV -->
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Templates</a>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">Support</a>
-    </nav>
+<!-- NAV -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Templates</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Support</a>
+</nav>
 
-    <!-- BUTTONS -->
-    <div class="buttons">
-        <button>Login</button>
+<!-- BUTTONS -->
+<div class="buttons">
+    <button>Login</button>
+
+    <!-- ONLY CHANGE HERE -->
+    <a href="editor.html">
         <button>Get Started</button>
-    </div>
+    </a>
+
+</div>
 
 </header>
 
@@ -266,6 +271,24 @@ function toggleMenu(){
         btn.innerHTML = menu.classList.contains("active") ? "✖" : "☰";
     }
 }
+    
+document.addEventListener("DOMContentLoaded", function(){
+
+    const btn = document.querySelector(".buttons a button");
+
+    if(btn){
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+
+    }
+
+});
+</script>
 </script>
     
     <style>
@@ -1246,6 +1269,34 @@ nav{
     padding:10px 18px;
     font-size:16px;
 }
+
+/* BUTTON WRAPPER FIX (for link button) */
+.buttons a{
+    text-decoration:none;
+}
+
+/* ensure button inside link looks same */
+.buttons a button{
+    all:unset;
+    padding:12px 25px;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    display:inline-block;
+}
+
+/* same style as your original last button */
+.buttons a button{
+    background:linear-gradient(to right,#0066ff,#ff00ff);
+    box-shadow:0 0 15px #0066ff,0 0 20px #ff00ff;
+}
+
+/* hover effect */
+.buttons a button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px cyan,0 0 35px magenta;
+}    
 </style>
 
 <footer class="footer">
