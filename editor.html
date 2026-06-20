@@ -115,6 +115,13 @@ body{
     border-radius:8px;
 }
 
+ .block{
+    user-select:none;
+}
+
+.block:hover{
+    background:rgba(0,198,255,0.15);
+}
 </style>
 
 </head>
@@ -128,7 +135,9 @@ body{
         <button class="btn" onclick="addText()">+ Text</button>
         <button class="btn" onclick="addBox()">+ Box</button>
         <button class="btn" onclick="clearCanvas()">Clear</button>
-
+        <div class="block clickable" onclick="addText()">
+    + Add Text
+</div>
     </div>
 
     <!-- CENTER -->
@@ -246,6 +255,33 @@ function addText(){
 
     document.getElementById("canvas").appendChild(div);
 }
+
+function addText(){
+
+    const canvas = document.getElementById("canvas");
+
+    const text = document.createElement("div");
+
+    text.innerText = "New Text Element";
+    text.style.padding = "10px";
+    text.style.margin = "10px 0";
+    text.style.background = "rgba(255,255,255,0.1)";
+    text.style.border = "1px solid #00c6ff";
+    text.style.cursor = "pointer";
+
+    // click effect on new element
+    text.onclick = function(){
+
+        document.querySelectorAll(".active-click")
+        .forEach(x => x.classList.remove("active-click"));
+
+        this.classList.add("active-click");
+
+    }
+
+    canvas.appendChild(text);
+}
+
 </script>
 
 </body>
