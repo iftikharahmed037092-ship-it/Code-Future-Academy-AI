@@ -176,6 +176,7 @@ if(!localStorage.getItem("userLoggedIn")){
 <!-- SIDEBAR MENU -->
 <div id="sideMenu" class="side-menu">
 <div class="close-btn" onclick="toggleMenu()">✖</div>
+<div id="overlay" onclick="toggleMenu()"></div>
     
     <a href="#">Home</a>
     <a href="#">Templates</a>
@@ -251,12 +252,13 @@ function createStar(){
 }
 
 setInterval(createStar, 90);
-
 function toggleMenu(){
     const menu = document.getElementById("sideMenu");
     const btn = document.getElementById("menuBtn");
+    const overlay = document.getElementById("overlay");
 
     menu.classList.toggle("active");
+    overlay.classList.toggle("active");
 
     if(menu.classList.contains("active")){
         btn.innerHTML = "✖";
@@ -1184,6 +1186,25 @@ nav{
     color:white;
     cursor:pointer;
     user-select:none;
+}
+        #overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(4px);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:9998;
+}
+
+/* when active */
+#overlay.active{
+    opacity:1;
+    visibility:visible;
 }
 </style>
 
