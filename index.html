@@ -1096,70 +1096,26 @@ function openTemplate(name){
     color:#888;
 }
 
-/* NEW MENU / SIDEBAR CSS START */
-.menu-icon{
-    font-size:45px;
-    color:white;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
+/* =========================
+   SIDEBAR MENU
+========================= */
 
-.logo{
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    background:linear-gradient(135deg,#00aaff,#ff00ff);
-    box-shadow:0 0 20px #00aaff,0 0 40px #ff00ff;
-    flex-shrink:0;
-}
-
-.navbar{
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:20px;
-    padding:15px 25px;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-    margin-left:auto;
-}
-
-.buttons{
-    display:flex;
-    gap:10px;
-}
-
-.buttons button{
-    padding:10px 18px;
-    font-size:16px;
-}
-
-/* SIDEBAR */
 .side-menu{
     position:fixed;
     top:0;
     left:-300px;
     width:260px;
     height:100vh;
+
     background:rgba(0,0,0,0.95);
-    transition:0.35s;
+
+    transition:0.35s ease;
+
     z-index:10000;
+
     padding-top:60px;
 }
 
-/* active open */
 .side-menu.active{
     left:0;
 }
@@ -1171,7 +1127,10 @@ nav{
     padding:12px 20px;
 }
 
-/* CLOSE BUTTON */
+/* =========================
+   CLOSE BUTTON
+========================= */
+
 .close-btn{
     position:absolute;
     top:15px;
@@ -1179,9 +1138,13 @@ nav{
     font-size:28px;
     color:white;
     cursor:pointer;
+    user-select:none;
 }
 
-/* LOGOUT */
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
 .logout{
     position:absolute;
     bottom:20px;
@@ -1190,21 +1153,83 @@ nav{
     cursor:pointer;
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY (BLUR BACKGROUND)
+========================= */
+
 #overlay{
     position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.5);
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    
+    background:rgba(0,0,0,0.4);
+
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+
     opacity:0;
     visibility:hidden;
-    transition:0.3s;
+
+    transition:0.3s ease;
+
     z-index:9998;
 }
 
-/* overlay active */
 #overlay.active{
     opacity:1;
     visibility:visible;
+}
+
+/* =========================
+   MENU ICON
+========================= */
+
+.menu-icon{
+    font-size:45px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+}
+
+/* =========================
+   LOGO FIX
+========================= */
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:white;
+}
+
+/* =========================
+   NAVBAR FIX
+========================= */
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:20px;
+
+    padding:15px 25px;
+}
+
+/* push nav right */
+nav{
+    margin-left:auto;
+    display:flex;
+    gap:25px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons button{
+    padding:10px 18px;
+    font-size:16px;
 }
 </style>
 
