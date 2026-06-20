@@ -81,6 +81,39 @@ body{
 .block:hover{
     outline:2px solid #00c6ff;
 }
+   .editor{
+    display:flex;
+    height:100vh;
+}
+
+.left{
+    width:200px;
+    background:rgba(255,255,255,0.05);
+    border-right:1px solid rgba(255,255,255,0.1);
+    padding:10px;
+}
+
+.canvas{
+    flex:1;
+    background:#0a0a1a;
+    padding:20px;
+    overflow:auto;
+}
+
+.right{
+    width:250px;
+    background:rgba(255,255,255,0.05);
+    border-left:1px solid rgba(255,255,255,0.1);
+    padding:10px;
+}
+
+.block{
+    padding:15px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:8px;
+}
 
 </style>
 
@@ -116,7 +149,31 @@ body{
     </div>
 
 </div>
+   
+<div class="editor">
 
+    <!-- LEFT PANEL -->
+    <div class="left">
+        <h3>Tools</h3>
+        <p>Canvas Ready ✔</p>
+    </div>
+
+    <!-- CANVAS -->
+    <div class="canvas" id="canvas">
+        <h3>Canvas Area</h3>
+
+        <div class="block">
+            First Element
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right">
+        <h3>Properties</h3>
+        <p>No selection yet</p>
+    </div>
+
+</div>
 <script>
 
 /* ======================
@@ -171,6 +228,24 @@ function clearCanvas(){
     '<div class="block">Click me to select</div>';
 }
 
+   
+let selected = null;
+
+function select(el){
+    selected = el;
+    alert("Element selected");
+}
+
+function addText(){
+    const div = document.createElement("div");
+    div.className = "block";
+    div.innerText = "New Text";
+    div.onclick = function(){
+        select(this);
+    };
+
+    document.getElementById("canvas").appendChild(div);
+}
 </script>
 
 </body>
