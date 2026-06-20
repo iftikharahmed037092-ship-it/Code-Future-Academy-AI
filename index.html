@@ -175,10 +175,9 @@ if(!localStorage.getItem("userLoggedIn")){
 
 <!-- SIDEBAR MENU -->
 <div id="sideMenu" class="side-menu">
-<div class="close-btn" onclick="toggleMenu()">✖</div>
-<div id="overlay" onclick="toggleMenu()"></div>
-<div id="overlay" onclick="toggleMenu()"></div>
-    
+
+    <div class="close-btn" onclick="toggleMenu()">✖</div>
+
     <a href="#">Home</a>
     <a href="#">Templates</a>
     <a href="#">Features</a>
@@ -187,38 +186,40 @@ if(!localStorage.getItem("userLoggedIn")){
     <a href="#">Help</a>
     <a href="#">Settings</a>
 
-    <!-- LOGOUT (BOTTOM FIX) -->
     <div class="logout" onclick="logout()">
         Logout
     </div>
 
 </div>
 
+<!-- OVERLAY (IMPORTANT: sidebar سے باہر ہونا چاہیے) -->
+<div id="overlay" onclick="toggleMenu()"></div>
+
 <div class="stars"></div>
 
 <header class="navbar">
 
-    <!-- MENU FIRST -->
-   <div class="menu-icon" onclick="toggleMenu()" id="menuBtn">
-    ☰
-</div>
+    <!-- MENU ICON -->
+    <div class="menu-icon" onclick="toggleMenu()" id="menuBtn">
+        ☰
+    </div>
 
-    <!-- LOGO SECOND -->
+    <!-- LOGO -->
     <div class="logo">CFA AI</div>
-    
-    <!-- NAV THIRD -->
+
+    <!-- NAV -->
     <nav>
-        <a href="#" onclick="comingSoon()">Home</a>
-        <a href="#" onclick="comingSoon()">Templates</a>
-        <a href="#" onclick="comingSoon()">Features</a>
-        <a href="#" onclick="comingSoon()">Pricing</a>
-        <a href="#" onclick="comingSoon()">Support</a>
+        <a href="#">Home</a>
+        <a href="#">Templates</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Support</a>
     </nav>
 
-    <!-- BUTTONS LAST -->
+    <!-- BUTTONS -->
     <div class="buttons">
-        <button onclick="goLogin()">Login</button>
-        <button onclick="comingSoon()">Get Started</button>
+        <button>Login</button>
+        <button>Get Started</button>
     </div>
 
 </header>
@@ -255,16 +256,14 @@ function createStar(){
 setInterval(createStar, 90);
 function toggleMenu(){
     const menu = document.getElementById("sideMenu");
-    const btn = document.getElementById("menuBtn");
     const overlay = document.getElementById("overlay");
+    const btn = document.getElementById("menuBtn");
 
     menu.classList.toggle("active");
     overlay.classList.toggle("active");
 
-    if(menu.classList.contains("active")){
-        btn.innerHTML = "✖";
-    } else {
-        btn.innerHTML = "☰";
+    if(btn){
+        btn.innerHTML = menu.classList.contains("active") ? "✖" : "☰";
     }
 }
 </script>
