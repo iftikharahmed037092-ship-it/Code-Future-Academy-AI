@@ -3,286 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Editor - CFA AI</title>
+<title>CFA AI Editor</title>
 
 <style>
-
-/* ======================
-   BASIC RESET
-====================== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    font-family:Arial;
     background:#050510;
-    color:white;
+    height:100vh;
     overflow:hidden;
 }
 
-/* ======================
-   MAIN LAYOUT
-====================== */
-.editor{
+/* TOP BAR */
+.topbar{
+    height:70px;
+    background:#0b1020;
+    border-bottom:1px solid rgba(255,255,255,.1);
+
     display:flex;
-    height:100vh;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+    color:white;
+}
+
+/* MAIN AREA */
+.editor-layout{
+    display:flex;
+    height:calc(100vh - 70px);
 }
 
 /* LEFT PANEL */
-.left{
-    width:200px;
-    background:rgba(255,255,255,0.05);
-    border-right:1px solid rgba(255,255,255,0.1);
-    padding:10px;
+.left-panel{
+    width:260px;
+    background:#0b1020;
+    border-right:1px solid rgba(255,255,255,.1);
+    color:white;
+    padding:15px;
 }
 
 /* CENTER CANVAS */
-.canvas{
+.canvas-area{
     flex:1;
-    background:#0a0a1a;
+    background:#111827;
     padding:20px;
     overflow:auto;
+}
+
+.canvas{
+    background:white;
+    min-height:1000px;
+    border-radius:12px;
+    padding:40px;
 }
 
 /* RIGHT PANEL */
-.right{
-    width:250px;
-    background:rgba(255,255,255,0.05);
-    border-left:1px solid rgba(255,255,255,0.1);
-    padding:10px;
-}
-
-/* ======================
-   BASIC ELEMENTS
-====================== */
-.btn{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    border:none;
-    cursor:pointer;
+.right-panel{
+    width:320px;
+    background:#0b1020;
+    border-left:1px solid rgba(255,255,255,.1);
     color:white;
-    background:linear-gradient(90deg,#0066ff,#ff00ff);
-    border-radius:8px;
-}
-
-.block{
     padding:15px;
-    margin-bottom:10px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.block:hover{
-    outline:2px solid #00c6ff;
-}
-   .editor{
-    display:flex;
-    height:100vh;
-}
-
-.left{
-    width:200px;
-    background:rgba(255,255,255,0.05);
-    border-right:1px solid rgba(255,255,255,0.1);
-    padding:10px;
-}
-
-.canvas{
-    flex:1;
-    background:#0a0a1a;
-    padding:20px;
-    overflow:auto;
-}
-
-.right{
-    width:250px;
-    background:rgba(255,255,255,0.05);
-    border-left:1px solid rgba(255,255,255,0.1);
-    padding:10px;
-}
-
-.block{
-    padding:15px;
-    margin-bottom:10px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:8px;
-}
-
- .block{
-    user-select:none;
-}
-
-.block:hover{
-    background:rgba(0,198,255,0.15);
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="editor">
+<div class="topbar">
+    <h2>CFA AI Editor</h2>
 
-    <!-- LEFT -->
-    <div class="left">
-
-        <button class="btn" onclick="addText()">+ Text</button>
-        <button class="btn" onclick="addBox()">+ Box</button>
-        <button class="btn" onclick="clearCanvas()">Clear</button>
-        <div class="block clickable" onclick="addText()">
-    + Add Text
+    <div>
+        Preview
+        &nbsp;&nbsp;
+        Publish
+    </div>
 </div>
+
+<div class="editor-layout">
+
+    <div class="left-panel">
+        Elements Panel
     </div>
 
-    <!-- CENTER -->
-    <div class="canvas" id="canvas">
+    <div class="canvas-area">
 
-        <div class="block" onclick="select(this)">
-            Click me to select
+        <div class="canvas">
+
+            <h1>
+                Your Website Starts Here
+            </h1>
+
         </div>
 
     </div>
 
-    <!-- RIGHT -->
-    <div class="right">
-
-        <h3>Properties</h3>
-        <p id="info">No selection</p>
-
+    <div class="right-panel">
+        Settings Panel
     </div>
 
 </div>
-   
-<div class="editor">
-
-    <!-- LEFT PANEL -->
-    <div class="left">
-        <h3>Tools</h3>
-        <p>Canvas Ready ✔</p>
-    </div>
-
-    <!-- CANVAS -->
-    <div class="canvas" id="canvas">
-        <h3>Canvas Area</h3>
-
-        <div class="block">
-            First Element
-        </div>
-    </div>
-
-    <!-- RIGHT PANEL -->
-    <div class="right">
-        <h3>Properties</h3>
-        <p>No selection yet</p>
-    </div>
-
-</div>
-<script>
-
-/* ======================
-   GLOBAL STATE
-====================== */
-let selected = null;
-
-/* ======================
-   SELECT ELEMENT
-====================== */
-function select(el){
-    selected = el;
-    document.getElementById("info").innerText =
-    "Element Selected ✔";
-}
-
-/* ======================
-   ADD TEXT BLOCK
-====================== */
-function addText(){
-
-    let div = document.createElement("div");
-    div.className = "block";
-    div.innerText = "New Text";
-    div.onclick = function(){
-        select(this);
-    };
-
-    document.getElementById("canvas").appendChild(div);
-}
-
-/* ======================
-   ADD BOX BLOCK
-====================== */
-function addBox(){
-
-    let div = document.createElement("div");
-    div.className = "block";
-    div.innerText = "New Box";
-    div.onclick = function(){
-        select(this);
-    };
-
-    document.getElementById("canvas").appendChild(div);
-}
-
-/* ======================
-   CLEAR CANVAS
-====================== */
-function clearCanvas(){
-    document.getElementById("canvas").innerHTML =
-    '<div class="block">Click me to select</div>';
-}
-
-   
-let selected = null;
-
-function select(el){
-    selected = el;
-    alert("Element selected");
-}
-
-function addText(){
-    const div = document.createElement("div");
-    div.className = "block";
-    div.innerText = "New Text";
-    div.onclick = function(){
-        select(this);
-    };
-
-    document.getElementById("canvas").appendChild(div);
-}
-
-function addText(){
-
-    const canvas = document.getElementById("canvas");
-
-    const text = document.createElement("div");
-
-    text.innerText = "New Text Element";
-    text.style.padding = "10px";
-    text.style.margin = "10px 0";
-    text.style.background = "rgba(255,255,255,0.1)";
-    text.style.border = "1px solid #00c6ff";
-    text.style.cursor = "pointer";
-
-    // click effect on new element
-    text.onclick = function(){
-
-        document.querySelectorAll(".active-click")
-        .forEach(x => x.classList.remove("active-click"));
-
-        this.classList.add("active-click");
-
-    }
-
-    canvas.appendChild(text);
-}
-
-</script>
 
 </body>
 </html>
